@@ -82,16 +82,13 @@ func (p *GoogleDocAIProvider) ProcessImage(ctx context.Context, imageContent []b
 				MimeType: mtype.String(),
 			},
 		},
-		// ---
 		ProcessOptions: &documentaipb.ProcessOptions{
 			OcrConfig: &documentaipb.OcrConfig{
-				EnableSymbol:             true,  // Now correctly nested
-				// OcrConfig directly includes PremiumFeatures
+				EnableSymbol:             true, 
+				EnableNativePdfParsing:   true,
 				PremiumFeatures: &documentaipb.OcrConfig_PremiumFeatures{
-					EnableSelectionMarkDetection: true, // Now correctly nested
-					// Other premium features can be added here
+					EnableSelectionMarkDetection: true,
 				},
-				// Other non-premium OcrConfig options can go here, e.g., EnableNativePdfParsing
 			},
 		},
 	}
