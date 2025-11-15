@@ -82,6 +82,7 @@ func (p *GoogleDocAIProvider) ProcessImage(ctx context.Context, imageContent []b
 				MimeType: mtype.String(),
 			},
 		},
+		
 		ProcessOptions: &documentaipb.ProcessOptions{
 			OcrConfig: &documentaipb.ProcessOptions_OcrConfig{
 				EnableSymbol:             true,  // Set to true to enable symbol detection
